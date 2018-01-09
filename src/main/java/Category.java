@@ -1,34 +1,57 @@
 import java.util.List;
 import java.util.ArrayList;
+import org.sql2o.*;
 
 public class Category{
     private String name;
-    private static List<Category> instances = new ArrayList<Category>();
-    private int mId;
+    private int id;
+
+    @Override
+    public boolean equals(Object otherCategory){
+        if(!(otherCategory instanceof Category)){
+            return false;
+        }else{
+            Category newCategory = (Category) otherCategory;
+            return this.getName().equals(newCategory.getName());
+        }
+    }
+
+    public void save(){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "INSERT INTO categories (name) VALUES (:name)";
+            this.id = (int) con.createQuery(sql, true)
+            .addParameter("name", this.name)
+            .executeUpdate()
+            .getKey();
+        }
+    }
 
     public Category(String name){
         this.name = name;
-        instances.add(this);
-        mId = instances.size();
     }
 
     public String getName(){
         return name;
     }
 
-    public static List<Category>all(){
-        return instances;
+    public static List<Category> all() {
+        String sql = "SELECT * FROM categories";
+        try(Connection con = DB.sql2o.open()){
+            return con.createQuery(sql).executeAndFetch(Category.class);
+        }
     }
 
-    public static void clear(){
-        instances.clear();
+    public static Category find(int id){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM categories where id = :id";
+            Category category = con.createQuery(sql)
+            .addParameter("id", id)
+            .executeAndFetchFirst(Category.class);
+            return category;
+        }
     }
 
     public int getId(){
-        return mId;
-    }
-
-    public static Category find(int id) {
-        return instances.get(id - 1);
+        return id;
     }
 }
