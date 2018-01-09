@@ -54,4 +54,13 @@ public class Category{
     public int getId(){
         return id;
     }
+
+    public List<User> getUsers(){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM users where categoryId = :id";
+            return con.createQuery(sql)
+            .addParameter("id", this.id)
+            .executeAndFetch(User.class);
+        }
+    }
 }

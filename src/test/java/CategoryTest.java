@@ -1,6 +1,7 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.sql2o.*;
+import java.util.Arrays;
 
 public class CategoryTest{
 
@@ -53,10 +54,22 @@ public class CategoryTest{
 
     @Test
     public void find_returnsCategoryWithSameId_secondCategory(){
-        Category firstCategory = new Category("Hom Maintenance");
+        Category firstCategory = new Category("Home Maintenance");
         firstCategory.save();
         Category secondCategory = new Category("Plumbing");
         secondCategory.save();
         assertEquals(Category.find(secondCategory.getId()), secondCategory);
+    }
+
+    @Test
+    public void getUsers_retrievesAllUsersFromDataBase_usersList() {
+        Category testCategory = new Category("Home Maintenance");
+        testCategory.save();
+        User firstUser = new User("Henry", "John", "henry@mail.com", "password", "location", "avatar", testCategory.getId());
+        firstUser.save();
+        User secondUser = new User("Tim", "ken", "tim@mail.com", "word", "place", "propic", testCategory.getId());
+        secondUser.save();
+        User[] users = new User[] { firstUser, secondUser};
+        assertTrue(testCategory.getUsers().containsAll(Arrays.asList(users)));
     }
 }
