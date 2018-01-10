@@ -1,6 +1,9 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.sql2o.*;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.text.DateFormat;
 
 public class UserTest{
 
@@ -73,5 +76,14 @@ public class UserTest{
         testUser.save();
         User savedUser = User.find(testUser.getId());
         assertEquals(savedUser.getCategoryId(), testCategory.getId());
+    }
+
+    @Test
+    public void save_recordsTimeOfCreationInDatabase(){
+        User testUser = new User("Henry", "John", "henry@mail.com", "password", "location", "avatar", 1);
+        testUser.save();
+        Timestamp savedUserCreationDate = User.find(testUser.getId()).getCreationDate();
+        Timestamp rightNow = new Timestamp(new Date().getTime());
+        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedUserCreationDate));
     }
 }

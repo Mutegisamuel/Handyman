@@ -1,8 +1,10 @@
 import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Timestamp;
 
 public class User{
+    private Timestamp createdOn;
     private String firstName;
     private String lastName;
     private String address;
@@ -25,7 +27,7 @@ public class User{
 
     public void save(){
         try(Connection con = DB.sql2o.open()){
-            String sql = "INSERT INTO users (firstName, lastName, address, password, location, avatar, categoryId) VALUES (:firstName, :lastName, :address, :password, :location, :avatar, :categoryId)";
+            String sql = "INSERT INTO users (firstName, lastName, address, password, location, avatar, categoryId, createdOn) VALUES (:firstName, :lastName, :address, :password, :location, :avatar, :categoryId, now())";
             this.id = (int) con.createQuery(sql, true)
             .addParameter("firstName", this.firstName)
             .addParameter("lastName", this.lastName)
@@ -90,6 +92,10 @@ public class User{
 
     public int getCategoryId(){
         return categoryId;
+    }
+
+    public Timestamp getCreationDate(){
+        return createdOn;
     }
 
     public static User find(int id){
