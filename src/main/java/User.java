@@ -107,4 +107,83 @@ public class User{
             return user;
         }
     }
+
+    public void updateFirstName(String firstName){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE users SET firstName = :firstName WHERE id = :id";
+            con.createQuery(sql)
+            .addParameter("firstName", firstName)
+            .addParameter("id", id)
+            .executeUpdate();
+        }
+    }
+
+    public void updateLastName(String lastName){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE users SET lastName = :lastName WHERE id = :id";
+            con.createQuery(sql)
+            .addParameter("lastName", lastName)
+            .addParameter("id", id)
+            .executeUpdate();
+        }
+    }
+
+    public void updateAddress(String address){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE users SET address = :address WHERE id = :id";
+            con.createQuery(sql)
+            .addParameter("address", address)
+            .addParameter("id", id)
+            .executeUpdate();
+        }
+    }
+
+    public void updateLocation(String location){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE users SET location = :location WHERE id = :id";
+            con.createQuery(sql)
+            .addParameter("location", location)
+            .addParameter("id", id)
+            .executeUpdate();
+        }
+    }
+
+    public void updateAvatar(String avatar){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE users SET avatar = :avatar WHERE id = :id";
+            con.createQuery(sql)
+            .addParameter("avatar", avatar)
+            .addParameter("id", id)
+            .executeUpdate();
+        }
+    }
+
+    public void updatePassword(String password){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE users SET password = :password WHERE id = :id";
+            con.createQuery(sql)
+            .addParameter("password", password)
+            .addParameter("id", id)
+            .executeUpdate();
+        }
+    }
+
+    public void updateCategoryId(int categoryId){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE users SET categoryId = :categoryId WHERE id = :id";
+            con.createQuery(sql)
+            .addParameter("categoryId", categoryId)
+            .addParameter("id", id)
+            .executeUpdate();
+        }
+    }
+
+    public void delete(){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "DELETE FROM users WHERE id = :id;";
+            con.createQuery(sql)
+            .addParameter("id", id)
+            .executeUpdate();
+        }
+    }
 }
