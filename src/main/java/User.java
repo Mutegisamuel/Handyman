@@ -47,8 +47,7 @@ public class User{
             return false;
         }else{
             User newUser = (User) otherUser;
-            return this.getAddress().equals(newUser.getAddress()) &&
-                this.getPassword() == newUser.getPassword();
+            return this.getAddress().equals(newUser.getAddress());
         }
     }
 

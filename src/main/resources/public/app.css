@@ -4,7 +4,7 @@ Jumbotron 1
 @import url('https://fonts.googleapis.com/css?family=Anton|Oswald');
 #jumbo1 {
 	background: url(https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1050&q=80) center center no-repeat;
-  width:1600px;
+  width:1400px;
   height:799px;
 	background-size: cover;
 	text-align: center;
