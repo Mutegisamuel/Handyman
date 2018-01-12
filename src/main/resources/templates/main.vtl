@@ -25,7 +25,7 @@
         <li> <a href="#">Plumbers </a></li>
         <li> <a href="#">Home Maintanance </a></li>
       </ul>
-        <button class="btn btn-danger navbar-btn navbar-right" style="color:#ffa800;">logout</button>
+        <button class="btn btn-danger navbar-btn navbar-right" style="color:#ffa800;"><a href="/">Home</a></button>
   </div>
   </nav>
 <!-- navbar end -->
@@ -45,7 +45,8 @@
         <img src="https://storage.googleapis.com/indie-hackers.appspot.com/avatars/91pCMzSNsAQ8d49xTR3gWA9GXpo1" />
         <div class="personal-details">
           <div class="name">Mary</div>
-          <div class="occupation">Elecrician</div>
+          <div class="occupation">Client</div>
+          <div class="occupation">0202323343</div>
         </div>
       </div>
     </div>
@@ -69,7 +70,8 @@
         <img src="http://lorempixel.com/g/300/300/nature/" />
         <div class="personal-details">
           <div class="name">Peter</div>
-          <div class="occupation">Elecrician</div>
+          <div class="occupation">Mechanic</div>
+          <div class="occupation">070000000</div>
         </div>
       </div>
     </div>
@@ -92,7 +94,8 @@
         <img src="http://lorempixel.com/g/300/300/Dogs/" />
         <div class="personal-details">
           <div class="name">John</div>
-          <div class="occupation">Elecrician</div>
+          <div class="occupation">Plumber</div>
+          <div class="occupation">y@live.com</div>
         </div>
       </div>
     </div>
@@ -118,7 +121,7 @@
 			<div class='container'>
 				<div class='col col-sm-4'>
 					<h2>REGISTER</h2>
-					<p>Register as our user.</p>
+					<p><a class='btn btnTop' href='/signin'>Register as our user.</a></p>
 				</div>
 				<div class='col col-sm-4'>
 					<h2>FIND</h2>
@@ -126,7 +129,18 @@
 				</div>
 				<div class='col col-sm-4'>
 					<h2>HIRE</h2>
-					<p>Find someone you like and hire them.</p>
+                    #if ($categories)
+                        <p>Categories:</p>
+                        <ul>
+                            #foreach ($category in $categories)
+                                <li>
+                                    <p><a href="/homepage/$category.getId()">$category.getName()</a></p>
+                                </li>
+                            #end
+                        </ul>
+                    #else
+                        <p>Zero categories entered!</p>
+                    #end
 				</div>
 			</div>
 		</div>
@@ -153,7 +167,7 @@
         <img src="http://icons.iconarchive.com/icons/webalys/kameleon.pics/512/Man-14-icon.png" />
         <div class="personal-details">
           <div class="name">Mark</div>
-          <div class="occupation">Mechanic</div>
+          <div class="occupation">Client</div>
         </div>
       </div>
     </div>
