@@ -1,0 +1,108 @@
+body{
+  background-image: url("./images/salon.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+  height: 100%;
+  width: 100%;
+}
+hr{
+    border: 0;
+    height: 2px;
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+}
+
+
+select   {
+    background-color: inherit;
+    height: 33px;
+    overflow: hidden;
+    width: 180px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+ }
+
+.line{
+    border-left-width: thick;
+}
+
+.client-form-centered{
+    text-align: center;
+}
+
+.container{
+    margin-top: 2%;
+    background-color: inherit;
+    padding: 10px 20px;
+    opacity: 0.92;
+}
+
+.form-style-2{
+    max-width: 600px;
+    padding: 20px 12px 10px 20px;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-2-heading{
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding-bottom: 3px;
+}
+.form-style-2 label{
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+.form-style-2 label > span{
+    width: 160px;
+    font-weight: bold;
+    float: left;
+    padding-top: 8px;
+    padding-right: 5px;
+}
+
+span.required{
+    color:red;
+}
+
+input.input-field{
+    width: 48%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+
+#btn{
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+#btn :hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+#hero-details{
+    column-count: 2;
+    column-gap: 2px;
+    column-rule: 1px solid #968585;
+}
+
+.heroDisplay{
+    width: 50px;
+    font-weight: bold;
+}
