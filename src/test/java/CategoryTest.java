@@ -72,4 +72,11 @@ public class CategoryTest{
         User[] users = new User[] { firstUser, secondUser};
         assertTrue(testCategory.getUsers().containsAll(Arrays.asList(users)));
     }
+
+    // @Test
+    // public void addUsers(){
+    //     initiallyReturnsEmptyList_ArrayList(){
+    //          
+    //     }
+    // }
 }
