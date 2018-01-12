@@ -1,0 +1,404 @@
+
+/*============
+Jumbotron 1
+============*/
+
+#jumbo1 {
+	background: url('https://images.unsplash.com/photo-1505635374747-431af16edaf2?auto=format&fit=crop&w=1050&q=80') center center no-repeat;
+	height: 600px;
+	background-size: cover;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+
+#jumbo1 h1 {
+	color: #ffa800;
+	font-family: 'Oswald', sans-serif;
+	font-size: 5rem;
+	font-weight: 77;
+	margin-top: 105px;
+	text-transform: uppercase;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 50px;
+}
+
+#jumbo1 p {
+	color: white;
+	font-family: Helvetica, sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 20px;
+	margin-top: 30px;
+}
+
+#users{
+	padding-top:290px;
+}
+
+/* // Workers start */
+
+
+/* //Nexus 6P screen simulation */
+#nexus6p {
+	width: 288px;
+	height: 388px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	overflow:hidden;
+}
+
+.profile{
+	width:100%;
+	height: 100%;
+}
+.profile ul{
+	padding-top: 50px;
+	font-family: "Lato";
+	font-size: 16px;
+}
+
+.profile-top{
+	position:relative;
+	width: 100%;
+	height: 50%;
+	display:block;
+	z-index: 5;
+}
+
+.profile-bg{
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	display:block;
+	-webkit-clip-path: polygon(0% 0%, 0% 80%, 100% 100%, 100% 0% );
+  clip-path: polygon(0% 0%, 0% 80%, 100% 100%, 100% 0% );
+	background: white url('http://lorempixel.com/g/300/300/nature/') no-repeat center center;
+}
+
+.profile-mask {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(10, 60, 5, 0.5);
+	background: rgba(60, 120, 50, 0.5) url(https://unsplash.it/300/300?image=6) no-repeat;
+	-webkit-clip-path: polygon(0% 0%, 0% 80%, 100% 100%, 100% 0% );
+  clip-path: polygon(0% 0%, 0% 80%, 100% 100%, 100% 0% );
+}
+
+.profile-details{
+	z-index: 1;
+	width: 100%;
+	position: absolute;
+	top:50%;
+	left:0;
+	padding: 10px 0;
+  background: rgba(50,50,50, 0.7);
+	}
+	img{
+		border:2px solid white;
+		width:20%;
+		border-radius: 50%;
+		position: relative;
+    left: 5%;
+		height: 100%;
+	}
+
+.personal-details {
+    margin-left: 20px;
+    padding: 6px;
+	font-family: 'Lato';
+	font-size: 16px;
+	color:white;
+	& *{
+		display:block;
+	}
+}
+
+.profile-bottom{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width: 100%;
+	height: 60%;
+	background-color: white;
+	z-index: 4;
+}
+
+.profile-bottom .profile-container{
+	display:none;
+	width:263px;
+	height: 320px;
+	margin:-10px 10px 0px 15px;
+	padding-top: 50px;
+	font-family: "Lato";
+	&.profile-map{
+		padding:0;
+		margin:0;
+		width:100%;
+		height: 308px;
+	}
+	&.open{
+		display:block;
+	}
+}
+
+.info-card{
+	padding: 0.8em 0;
+	&::before{
+		margin-left: -5px;
+		content:'•';
+		font-size: 16px;
+		color: #663366;
+	}
+}
+
+.menu{
+	width:40px;
+	height: 40px;
+	font-size: 20px;
+	z-index: 8;
+	position: absolute;
+	top:42%;
+	/*right:0%;*/
+	right: 5%;
+	transform: translate(0%, -50%);
+	/*background-color: #CCCC33;*/
+	background-color: #663366;
+	border:2px solid white;
+	border-radius: 50%;
+	color:white;
+	&.on{
+		width: 150px;
+		height: 150px;
+		top:42%;
+		right: 12.2%;
+		transform: translate(50%, -50%);
+		transition: width 0.3s , height 0.3s;
+	}
+	& i{
+		width:20px;
+		height:20px;
+		font-size:20px;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%, -50%);
+	}
+	& .menu-item{
+		opacity:0;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%, -50%);
+		width:30px;
+		height:30px;
+	}
+	&.on .menu-item{
+		display:block;
+		font-size: 20px;
+		opacity: 1;
+		transition:opacity 0.3s, transform 0.3s;
+		cursor: pointer;
+		&:nth-child(1){
+			top:50%;
+			left:50%;
+			transform: translate(-10px, -60px);
+		}
+		&:nth-child(2){
+			top:50%;
+			left:50%;
+			transform: translate(-50px, -45px);
+		}
+		&:nth-child(3){
+			top:50%;
+			left:50%;
+			transform: translate(-55px, 5px);
+		}
+		&:nth-child(4){
+			top:50%;
+			left:50%;
+			transform: translate(-10px, 30px);
+		}
+
+	}
+	&.on i#menu-icon{
+		display:none;
+		}
+}
+
+/* // Workers end */
+
+/*=================
+Supporting Columns
+=================*/
+
+.supporting-col {
+	text-align: center;
+	background: #1c1c1c;
+	padding: 20px 0;
+}
+
+.supporting-col h2 {
+	color: #ffa800;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	margin-bottom: 20px;
+	font-size: 30px;
+}
+
+.supporting-col p {
+	color: white;
+	font-family: Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+.col {
+	max-width: 80%;
+	margin: 0 auto;
+}
+
+
+/*============
+Jumbotron 2
+============*/
+
+#jumbo2 {
+	height: 600px;
+	background: url('https://images.unsplash.com/photo-1491944799262-a5be522e2300?auto=format&fit=crop&w=1049&q=80') center center no-repeat;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+}
+
+#jumbo2 h2 {
+	font-family: 'Oswald', sans-serif;
+	color: white;
+	text-align: center;
+	font-size: 40px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-top: 250px;
+}
+
+
+/*============
+Go Premium
+============*/
+
+.goPremium {
+	background: #1c1c1c;
+	text-align: center;
+	padding: 60px 0;
+}
+
+.goPremium h2 {
+	color: #ffa800;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 28px;
+	margin-bottom: 20px
+}
+
+.goPremium p {
+	color: white;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+
+.btnBottom {
+	background: white;
+	color: #1c1c1c;
+	font-family: 'Oswald', sans-serif;
+	border-radius: 0;
+	padding: 9px 33px;
+	font-size: 18px;
+}
+
+.btnBottom:hover {
+	background: #ffa800;
+	color: black;
+}
+
+
+/*===============
+Third Jumbotron
+===============*/
+
+#jumbo3 {
+	height: 600px;
+	background: url('https://images.unsplash.com/photo-1451933371645-a3029668b979?auto=format&fit=crop&w=1050&q=80') center center no-repeat;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#jumbo3 h2 {
+	color: white;
+	font-family: "Oswald", sans-serif;
+	font-weight: 700;
+	font-size: 40px;
+	margin-top: 200px;
+	margin-bottom: 35px;
+}
+
+/*===============
+Forth Jumbotron
+===============*/
+
+#jumbo4 {
+	height: 600px;
+	background: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1050&q=80') center center no-repeat;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#jumbo4 h2 {
+	color: white;
+	font-family: "Oswald", sans-serif;
+	font-weight: 700;
+	font-size: 40px;
+	margin-top: 200px;
+	margin-bottom: 35px;
+}
+
+
+/*============
+Media Queries
+============*/
+
+@media (min-width:768px) {
+	#jumbo1 h1 {
+		font-size: 200px;
+	}
+	.supporting-col h2 {
+		font-size: 40px;
+	}
+	.supporting-col {
+		padding: 60px 0;
+	}
+	#jumbo2 h2 {
+		font-size: 75px;
+	}
+	.goPremium h2 {
+		font-size: 50px;
+	}
+	.goPremium p {
+		font-size: 15px;
+	}
+	#jumbo3 h2 {
+		font-size: 55px;
+	}
+}

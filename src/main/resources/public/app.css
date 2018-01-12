@@ -1,108 +1,78 @@
-body{
-  background-image: url("./images/salon.png");
-  background-repeat: no-repeat;
-  background-size:cover;
-  height: 100%;
-  width: 100%;
+/*============
+Jumbotron 1
+============*/
+@import url('https://fonts.googleapis.com/css?family=Anton|Oswald');
+#jumbo1 {
+	background: url(https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1050&q=80) center center no-repeat;
+  width:1600px;
+  height:799px;
+	background-size: cover;
+	text-align: center;
 }
-hr{
-    border: 0;
-    height: 2px;
-    background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-    background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-    background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-    background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+
+#jumbo1 h1 {
+	color: white;
+	font-family: 'Oswald', sans-serif;
+	font-size: 120px;
+	font-weight: 700;
+	margin-top: 105px;
+	text-transform: uppercase;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+#jumbo1 p {
+	color: #fff;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 1000;
+	font-size: 18px;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 20px;
+	margin-top: 30px;
+}
+
+.btnTop {
+	font-family: 'Oswald', sans-serif;
+	background: #1c1c1c;
+	color: white;
+	border-radius: 0;
+	font-size: 18px;
+	padding: 8px 30px;
+}
+
+.btnTop:hover {
+	color: black;
+	background: #ffa800;
 }
 
 
-select   {
-    background-color: inherit;
-    height: 33px;
-    overflow: hidden;
-    width: 180px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
- }
+/*=================
+Supporting Columns
+=================*/
 
-.line{
-    border-left-width: thick;
+.supporting-col {
+	text-align: center;
+	background: #1c1c1c;
+	padding: 20px 0;
 }
 
-.client-form-centered{
-    text-align: center;
+.supporting-col h2 {
+	color: #ffa800;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	margin-bottom: 20px;
+	font-size: 30px;
 }
 
-.container{
-    margin-top: 2%;
-    background-color: inherit;
-    padding: 10px 20px;
-    opacity: 0.92;
+.supporting-col p {
+	color: white;
+	font-family: Helvetica, sans-serif;
+	font-size: 14px;
 }
 
-.form-style-2{
-    max-width: 600px;
-    padding: 20px 12px 10px 20px;
-    font: 13px Arial, Helvetica, sans-serif;
-}
-.form-style-2-heading{
-    text-align: center;
-    font-weight: bold;
-    font-style: italic;
-    border-bottom: 2px solid #ddd;
-    margin-bottom: 20px;
-    font-size: 15px;
-    padding-bottom: 3px;
-}
-.form-style-2 label{
-    display: block;
-    margin: 0px 0px 15px 0px;
-}
-.form-style-2 label > span{
-    width: 160px;
-    font-weight: bold;
-    float: left;
-    padding-top: 8px;
-    padding-right: 5px;
-}
-
-span.required{
-    color:red;
-}
-
-input.input-field{
-    width: 48%;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    border: 1px solid #C2C2C2;
-    box-shadow: 1px 1px 4px #EBEBEB;
-    -moz-box-shadow: 1px 1px 4px #EBEBEB;
-    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    padding: 7px;
-    outline: none;
-}
-
-#btn{
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-}
-
-#btn :hover {
-    background-color: #4CAF50; /* Green */
-    color: white;
-}
-
-#hero-details{
-    column-count: 2;
-    column-gap: 2px;
-    column-rule: 1px solid #968585;
-}
-
-.heroDisplay{
-    width: 50px;
-    font-weight: bold;
+.col {
+	max-width: 80%;
+	margin: 0 auto;
 }

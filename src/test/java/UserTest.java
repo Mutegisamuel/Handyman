@@ -113,4 +113,11 @@ public class UserTest{
         myUser.delete();
         assertEquals(null, User.find(myUserId));
     }
+
+    @Test
+    public void clientExists_checksIfClientExistsDabatabse_true() {
+        User myUser = new User("Henry", "John", "henry@mail.com", "password", "location", "avatar", 1);
+        myUser.save();
+        assertTrue(User.all().clientExists(myUser));
+    }
 }

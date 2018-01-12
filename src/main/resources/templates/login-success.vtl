@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  #if ($clientNotInDb)
+    <h2 class="display-3">Failed!</h2>
+    <br>
+    <p>Your login attempt was not successful.</p>
+    <button><a href="/signin">sign-up</a></button>
+  #else
+    <h2 class="display-3">log in successful!</h2>
+  #end
+  <br>
+  <button><a href="/homepage">Homepage</a></button>
+</div>

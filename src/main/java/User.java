@@ -47,7 +47,8 @@ public class User{
             return false;
         }else{
             User newUser = (User) otherUser;
-            return this.getAddress().equals(newUser.getAddress());
+            return this.getAddress().equals(newUser.getAddress()) &&
+                this.getPassword() == newUser.getPassword();
         }
     }
 
@@ -185,5 +186,15 @@ public class User{
             .addParameter("id", id)
             .executeUpdate();
         }
+    }
+
+    public static boolean clientExists(User newUser){
+        boolean exists = false;
+        for(User user: User.all()){
+            if(user.equals(newUser)){
+                exists = true;
+            }
+        }
+        return exists;
     }
 }

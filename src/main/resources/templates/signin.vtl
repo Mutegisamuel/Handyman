@@ -1,33 +1,74 @@
-<div class="container">
-    <p>sign-up form</p>
-    <br>
-    <form action="/homepage" method="post" class="form-style-2">
+<link rel='stylesheet' href='/signin.css'>
+<div class="signup__container">
+  <div class="container__child signup__thumbnail">
+    <div class="thumbnail__logo">
+      <h1 class="logo__text">Handyman</h1>
+    </div>
+    <div class="thumbnail__content text-center">
+      <h1 class="heading--primary">Welcome to handyman.</h1>
+      <h2 class="heading--secondary">Are you ready to join the elite?</h2>
+    </div>
+    <div class="thumbnail__links">
+      <ul class="list-inline m-b-0 text-center">
+        <li><a href="http://google.com/" target="_blank"><i class="fa fa-globe"></i></a></li>
+        <li><a href="https://www.facebook.com" target="_blank"><fa class="fa fa-facebook"></fa></a></li>
+        <li><a href="https://github.com/" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+    <div class="signup__overlay"></div>
+  </div>
+<!--   form -->
+  <div class="container__child signup__form">
+    <form action="/signin" method="post" >
         <label for="categoryId"><span>Select a Category that suite your need</span></label>
+
         <select id='categoryId' name='categoryId' type='text'>
           #foreach($category in $categories)
             <option value="$category.getId()">$category.getName()</option>
           #end
         </select>
 
-        <label for="firstName"><scan>First Name</scan></label>
-        <input id="firstName" name="firstName" type="text" class=".input-field">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input class="form-control" type="text" name="firstName" id="lastName"" placeholder="enter First Name" required />
+      </div>
 
-        <label for="lastName"><scan>Last Name</scan></label>
-        <input id="lastName" name="lastName" type="text" class=".input-field">
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input class="form-control" type="text" name="lastName" id="lastName" placeholder="enter Last Name" required />
+      </div>
 
-        <label for="address"><scan>Email</scan></label>
-        <input id="address" name="address" type="text" class=".input-field">
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input class="form-control" type="text" name="location" id="location" placeholder="enter location" required />
+      </div>
 
-        <label for="password"><scan>Passwords </scan></label>
-        <input id="location" name="password" type="text" class=".input-field">
+      <div class="form-group">
+        <label for="address">Email</label>
+        <input class="form-control" type="text" name="address" id="address" placeholder="username@mail.com" required />
+      </div>
 
-        <label for="location"><scan>Location </scan></label>
-        <input id="location" name="location" type="text" class=".input-field">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
+      </div>
 
-        <label for="avatar"><scan>Avatar</scan></label>
-        <input id="avatar" name="avatar" type="text" class=".input-field">
+      <div class="form-group">
+        <label for="avatar">Avatar</label>
+        <input class="form-control" type="text" name="avatar" id="avatar" placeholder="picture" required />
+      </div>
 
-        <button type="submit" class="btn btn-success">Save</button>
+      <div class="m-t-lg">
+        <ul class="list-inline">
+          <li>
+            <input class="btn btn--form" type="submit" value="Register" />
+          </li>
+          <li>
+            <a class="signup__link" href="/login">I am already a member</a>
+          </li>
+        </ul>
+      </div>
     </form>
-    <button><a href="/homepage">Homepage</a></button>
+  </div>
 </div>

@@ -26,6 +26,34 @@ public class App{
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
+        get("/login", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("template", "templates/login.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        post("/login", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String address = request.queryParams("address");
+            String password = request.queryParams("password");
+            String location = request.queryParams("location");
+            String avatar = request.queryParams("avatar");
+            int categoryId = Integer.parseInt(request.queryParams("categoryId"));
+            String firstName = request.queryParams("firstName");
+            String lastName = request.queryParams("lastName");
+            User newUser = new User(firstName, lastName, address, password, location, avatar, categoryId);
+            if(User.clientExists(newUser)){
+                String clientInDb = "Welcome to the app";
+                model.put("clientInDb", clientInDb);
+            }else{
+                String clientNotInDb = "You are not in our registry - please sign up!";
+                model.put("clientNotInDb", clientNotInDb);
+            }
+            //User newUser = User.find(Integer.parseInt(request.params(":id")));
+            model.put("template", "templates/login-success.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
         // get("/categories", (request, response) -> {
         //     Map<String, Object> model = new HashMap<String, Object>();
         //     model.put("template", "templates/category-form.vtl");
@@ -48,7 +76,7 @@ public class App{
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
-        post("/homepage", (request, response) -> {
+        post("/signin", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             Category category = Category.find(Integer.parseInt(request.queryParams("categoryId")));
             String firstName = request.queryParams("firstName");
@@ -69,7 +97,7 @@ public class App{
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("users", User.all());
             model.put("categories", Category.all());
-            model.put("template", "templates/homepage.vtl");
+            model.put("template", "templates/main.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
