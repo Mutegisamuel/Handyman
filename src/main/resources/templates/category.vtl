@@ -1,0 +1,24 @@
+<div class="container">
+<h2>$category.getName()</h2>
+
+<h4>NB: categories should be later split</h4>
+
+<br>
+#if($category)
+    <h3>$category.getName()</h3>
+    <ul>
+        #foreach($user in $category.getUsers())
+            <li>
+                <p><a href="/homepage/$category.getId()/users/$user.getId()"
+                >$user.getFirstName() $user.getLastname()</a></p>
+                <p>$user.getLocation()</p>
+                <p>$user.getAddress()</p>
+            </li>
+        #end
+    </ul>
+#else
+    <em><p>Sorry, no one has registeredfor this category yet!</p></em>
+#end
+
+<button><a href="/homepage">Homepage</a></button>
+</div>
