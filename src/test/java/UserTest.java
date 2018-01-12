@@ -84,6 +84,33 @@ public class UserTest{
         testUser.save();
         Timestamp savedUserCreationDate = User.find(testUser.getId()).getCreationDate();
         Timestamp rightNow = new Timestamp(new Date().getTime());
-        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedUserCreationDate));
+        assertEquals(rightNow.getDay(),savedUserCreationDate.getDay());
+    }
+
+    @Test
+    public void update_updatesTheUserDetails_true(){
+        User testUser = new User("Henry", "John", "henry@mail.com", "password", "location", "avatar", 1);
+        testUser.save();
+        testUser.updateFirstName("Tim");
+        testUser.updateLastName("ken");
+        testUser.updateAddress("tim@mail.com");
+        testUser.updateLocation("newLocation");
+        testUser.updateAvatar("newProfPic");
+        testUser.updateCategoryId(3);
+        assertEquals("Tim", User.find(testUser.getId()).getFirstName());
+        assertEquals("ken", User.find(testUser.getId()).getLastname());
+        assertEquals("tim@mail.com", User.find(testUser.getId()).getAddress());
+        assertEquals("newProfPic", User.find(testUser.getId()).getAvatar());
+        assertEquals("newLocation", User.find(testUser.getId()).getLocation());
+        assertEquals(3, User.find(testUser.getId()).getCategoryId());
+    }
+
+    @Test
+    public void delete_deleteUser_true(){
+        User myUser = new User("Henry", "John", "henry@mail.com", "password", "location", "avatar", 1);
+        myUser.save();
+        int myUserId = myUser.getId();
+        myUser.delete();
+        assertEquals(null, User.find(myUserId));
     }
 }
