@@ -1,0 +1,39 @@
+<h3>$user.getFirstName() $user.getLastname()</h3>
+
+<h4>Edit the user details</h4>
+
+<form action="/homepage/$user.getCategoryId()/users/$user.getId()" method="post" class="form-style-2">
+    <label for="categoryId"><span>Select a Category that suite your need</span></label>
+    <select id='categoryId' name='categoryId' type='text'>
+      #foreach($category in $categories)
+        <option value="$category.getId()">$category.getName()</option>
+      #end
+    </select>
+
+    <label for="firstName"><scan>First Name</scan></label>
+    <input id="firstName" name="firstName" type="text" class=".input-field" value="$user.getFirstName()">
+
+    <label for="lastName"><scan>Last Name</scan></label>
+    <input id="lastName" name="lastName" type="text" class=".input-field" value="$user.getLastname()">
+
+    <label for="address"><scan>Email</scan></label>
+    <input id="address" name="address" type="text" class=".input-field" value="$user.getAddress()">
+
+    <label for="password"><scan>Passwords </scan></label>
+    <input id="password" name="password" type="text" class=".input-field" value="$user.getPassword()">
+
+    <label for="location"><scan>Location </scan></label>
+    <input id="location" name="location" type="text" class=".input-field" value="$user.getLocation()">
+
+    <label for="avatar"><scan>Avatar</scan></label>
+    <input id="avatar" name="avatar" type="text" class=".input-field" value="$user.getAvatar()">
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+</form>
+
+<form action="/homepage/$user.getCategoryId()/users/$user.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger">Delete User</button>
+</form>
+
+<br>
+<a href="/homepage/$category.getId()">Return to $category.getName()</a>

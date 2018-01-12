@@ -1,0 +1,37 @@
+<h1>Handy skills and users list!</h1>
+
+#if ($categories)
+    <p>Categories:</p>
+    <ul>
+        #foreach ($category in $categories)
+            <li>
+                <p><a href="/homepage/$category.getId()">$category.getName()</a></p>
+            </li>
+        #end
+    </ul>
+#else
+    <p>Zero categories entered!</p>
+#end
+
+<hr>
+
+#if ($users)
+    <p>Current Client:</p>
+    <ul>
+        #foreach ($user in $users)
+            <li>
+                <p>$user.getFirstName()</p>
+                <p>$user.getLastname()</p>
+                <p>$user.getAddress()</p>
+                <p>$user.getLocation()</p>
+                <p>$user.getAvatar()</p>
+                <p>$user.getCategoryId()</p>
+            </li>
+        #end
+    </ul>
+#else
+    <p>No registered users yet!</p>
+#end
+
+<a href="/signin">Sign-up a new User</a>
+<button><a href="/homepage">Homepage</a></button>
