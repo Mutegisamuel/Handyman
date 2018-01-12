@@ -1,0 +1,17 @@
+#if ($categories)
+    <p>Skill Categories:</p>
+    <ul>
+        #foreach ($category in $categories)
+            <li>
+                <p><a href="/homepage/$category.getId()">$category.name()</a></p>
+            </li>
+        #end
+    </ul>
+#else
+    <p>Zero categories entered!</p>
+#end
+<form action="/categories" method="post" class="form-style-2">
+  <label for="name"><span>Category name</span></label>
+  <input id="name" name="name" type="text" class=".input-field">
+  <button type="submit" class="btn btn-success">Save Category</button>
+</form>
